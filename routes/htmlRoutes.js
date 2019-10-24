@@ -25,6 +25,10 @@ module.exports = function(app) {
   app.get("/listingOptions", function(req, res){
     res.sendFile(path.join(__dirname,"../public/listingOptions.html"))
   });
+  app.get("/sitePolicy", function(req, res){
+    res.sendFile(path.join(__dirname,"../public/sitePolicy.html"))
+  });
+ 
 
 
   // If no matching route is found default to home
