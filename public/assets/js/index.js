@@ -8,11 +8,11 @@ $(function(){
         $this.css('left', curX);
         curX += $this.outerWidth(true);
     });
-    var fullW = curX / 6;
+    var fullW = curX / 2;
     var viewportW = scroller.width();
 
     // Scrolling speed management
-    var controller = {curSpeed:0, fullSpeed:2};
+    var controller = {curSpeed:0, fullSpeed:1};
     var $controller = $(controller);
     var tweenToNewSpeed = function(newSpeed, duration)
     {
