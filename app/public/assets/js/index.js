@@ -17,7 +17,7 @@ $(function(){
     var tweenToNewSpeed = function(newSpeed, duration)
     {
         if (duration === undefined){
-            duration = 1000;
+            duration = 600;
         $controller.stop().animate({curSpeed:newSpeed}, duration);
     }};
 
