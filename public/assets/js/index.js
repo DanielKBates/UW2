@@ -1,4 +1,4 @@
-$(function(){
+$(function (){
     var scroller = $('#scroller div.innerScrollArea');
     var scrollerContent = scroller.children('ul');
     scrollerContent.children().clone().appendTo(scrollerContent);
@@ -32,6 +32,8 @@ $(function(){
             newX -= fullW;
         scroller.scrollLeft(newX);
     };
+    console.log("foo")
     setInterval(doScroll, 20);
     tweenToNewSpeed(controller.fullSpeed);
 });
+

@@ -2,23 +2,23 @@
 var Sequelize = require("sequelize");
 var sequelize = require("../config/connection.js");
 
-var Company = sequelize.define("company", {
+var Repoman = sequelize.define("repoman", {
   
   state: Sequelize.STRING,
   companyName: Sequelize.STRING,
   phoneNumber: Sequelize.INTEGER,
-  age: Sequelize.INTEGER,
   address: Sequelize.STRING,
   name: Sequelize.STRING,
   username: Sequelize.STRING,
   lastPaid: Sequelize.STRING,
   listingLevel: Sequelize.STRING,
-  id: Sequelize.INT
+  id: {type: Sequelize.INTEGER, primaryKey: true}
+  
 }, {
  
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps: false,
 });
+module.exports = Repoman;
 
-Company.sync();
 
-module.exports = Company;
