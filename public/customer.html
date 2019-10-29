@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="app/json" href="payment.json">
+    <!-- Load the required checkout.js script -->
+    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
+
+    <!-- Load the required Braintree components. -->
+    <script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
+    <title>RepoMan</title>
+</head>
+
+<body>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#850a0a;">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/small_rm_logo.png" alt="Repoman"> E P O M A N
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown1" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <a class="dropdown-item" href="aboutRepoman.html">About Repoman.com</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="aboutUSAWeb.html">About USA Web</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="sitePolicy.html">Site Policy</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="contactUs.html">Contact us</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown2" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Advertising Info
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" href="listingOptions.html">Listing Options</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="insurance.html">Insurance Requirements</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/vendors">Vendors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item navbar-brand ml-3" href="http://www.dynamicmfg.com/">
+                            <img src="assets/images/dyn_navthumb.gif" alt="Dynamic">
+                        </a>
+                    </li>
+                </ul>
+                <a class="nav-item nav-link text-white" href="/signIn">Register/Login</a>
+                <a class="nav-item nav-link text-white" href="/account">Account</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="container mt-2">
+        <div class="row">
+            <!-- Content  -->
+            <div class="col-sm-9">
+                <div class="card border-0 bg-transparent">
+                    <div class="column" id="main-content-area">
+                        <h1 class="text-dark text-left">My Account - Member Information</h1>
+                            <form action="/login" method="post">
+                            <div>
+                                <label>First Name:</label>
+                                    <input type="text" name="FirstName"/>
+                            </div>
+                            <div>
+                                <label>Last Name:</label>
+                                    <input type="text" name="LastName"/>
+                            </div>
+                            <div>   
+                                <label>Company:</label>
+                                    <input type="text" name="Company"/>
+                            </div>
+                            <div>
+                                <label>Email Address:</label>
+                                    <input type="text" name="Email">
+                            </div>
+                            <div>
+                                <input type="submit" value="Save"/>
+                            </div>
+                            </form>
+                                <div class="payment-container">
+                                    <select class="payment-options">
+                                        <option value="default"> Advertising Options</option>
+                                        <option value="basic">Basic Option  - $100 <strong> per </strong> year <strong> per </strong> State or Provice</option>
+                                        <option value="insured">Basic Insured Listing - $100 <strong> per </strong> year <strong> per </strong> State or Provice</option>
+                                        <option value="enhanced">Enhanced Listing - $600 <strong> per </strong> year <strong> per </strong> State or Provice</option>
+                                        <option value="enhancedad">Enhanced Listing w/ Multi-Media Ads - $800 per year per State or Province</option>
+                                    </select>
+                                </div>
+                            <script>
+                                paypal.Button.render({
+                                    braintree: braintree,
+                            // Other configuration
+                                }, '#id-of-element-where-paypal-button-will-render');
+                            </script>
+                            <div id="paypal-button"></div>
+                            <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                            <script>
+                                paypal.Button.render({
+                                // Configure environment
+                                env: 'sandbox',
+                                client: {
+                                    sandbox: 'demo_sandbox_client_id',
+                                    production: 'demo_production_client_id'
+                                },
+                                // Customize button (optional)
+                                locale: 'en_US',
+                                style: {
+                                    size: 'small',
+                                    color: 'gold',
+                                    shape: 'pill',
+                                },
+
+                                // Enable Pay Now checkout flow (optional)
+                                commit: true,
+
+                                // Set up a payment
+                                payment: function(data, actions) {
+                                    return actions.payment.create({
+                                        transactions: [{
+                                            amount: {
+                                                total: '0.01',
+                                                currency: 'USD'
+                                            }
+                                        }]
+                                    });
+                                },
+                                // Execute the payment
+                                onAuthorize: function(data, actions) {
+                                    return actions.payment.execute().then(function() {
+                                    // Show a confirmation message to the buyer
+                                        window.alert('Thank you for your purchase!');
+                                        });
+                                    }
+                                }, '#paypal-button');
+                            </script>
+                            <script>
+                                paypal.Button.render({
+                                    env: 'sandbox', // Or 'production'
+                                // Set up the payment:
+                                // 1. Add a payment callback
+                                    payment: function(data, actions) {
+                                // 2. Make a request to your server
+                                        return actions.request.post('/my-api/create-payment/')
+                                            .then(function(res) {
+                                // 3. Return res.id from the response
+                                                return res.id;
+                                            });
+                                        },
+                                // Execute the payment:
+                                // 1. Add an onAuthorize callback
+                                        onAuthorize: function(data, actions) {
+                                // 2. Make a request to your server
+                                            return actions.request.post('/my-api/execute-payment/', {
+                                                paymentID: data.paymentID,
+                                                payerID:   data.payerID
+                                            })
+                                                .then(function(res) {
+                                // 3. Show the buyer a confirmation message.
+                                        });
+                                    }
+                                }, '#paypal-button');
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>               
+            <!-- Ad Space -->
+            <div class="co-sm-3">
+                <div id="vertical-ad-space">
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-baja.gif">
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-bigtime.png"> 
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-det.png">
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-allied.gif"> 
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-ken.png"> 
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-locating.png"> 
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-minuteman.png">
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-nams.jpeg">
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-rec.png">
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-recmng.gif">
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-repfl.png">
+                    <img class="vertical-ad-img" src="assets/images/sidebar/sm-rsig.gif">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div id="footer">
+        <div class="row">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-2">
+                <ul class="footer-div">
+                    <li class="text-white">©USAWeb 1995-2019</li>
+                    <a href="/sitePolicy">
+                        <li class="text-white">Privacy Policy</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="footer-div">
+                    <a href="/account">
+                        <li class="text-white">Your Account
+                        </li>
+                    </a>
+                    <a href="/aboutUSAWeb">
+                        <li class="text-white">About USA Web
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="footer-div">
+                    <a href="/payment">
+                        <li class="text-white">Payment
+                        </li>
+                    </a>
+                    <a href="/contactUs">
+                        <li class="text-white">Contact Us
+                        </li>
+                    </a>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="footer-div">
+                    <a href="/refund">
+                        <li class="text-white">Refund Policy
+                        </li>
+                    </a>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+

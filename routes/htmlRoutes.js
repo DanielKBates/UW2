@@ -32,6 +32,13 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/refund.html"))
     });
 
+    app.get("/login", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/login.html"))
+    });
+    app.get("/customer", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/customer.html"))
+    });
+
 
     // If no matching route is found default to home
     app.get("*", function(req, res) {
