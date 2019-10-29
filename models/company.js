@@ -2,7 +2,7 @@
 var Sequelize = require("sequelize");
 var sequelize = require("../config/connection.js");
 
-var Repoman = sequelize.define("repoman", {
+var Repoman = sequelize.define("customer_info", {
   
   state: Sequelize.STRING,
   companyName: Sequelize.STRING,

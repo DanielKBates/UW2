@@ -8,11 +8,14 @@ module.exports = function (app) {
         });
     });
     app.get("/api/state/:state", function (req, res) {
+        var stateVal = req.params.state.toUpperCase();
+        console.log(stateVal);
         Repoman.findAndCountAll({
             raw: true,
             where: {
-                state: req.params.state
+                state: stateVal
             }
+            
         }).then((result) => {
             console.log(result);
             res.json(result);
