@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "name": "UW2",
     "version": "1.0.0",
     "description": "",
@@ -16,4 +17,25 @@
         "jquery": "^3.4.1",
         "php": "0.0.1"
     }
+=======
+  "name": "UW2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "mysql2": "^1.7.0",
+    "nodemon": "^1.19.4",
+    "sequelize": "^5.21.1"
+  }
+>>>>>>> e86709419c5fd03cc7dcbd75f6e7ef1562a41298
 }

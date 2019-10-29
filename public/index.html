@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#850a0a;">
         <div class="container">
             <a class="navbar-brand" href="/index">
-                <img src="assets/images/small_rm_logo.png" alt="Repoman"> E P O M A N
+                <img src="assets/images/large-rm-logo.png" style="width: 140px; height:55px;" alt="Repoman" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,8 +71,8 @@
             </div>
         </div>
     </nav>
-<!--Main Content-->
-    <div class="container mb-0">
+    <!--Main Content-->
+    <div class="container mb-2">
         <div class="jumbotron mt-3 mb-0" id="main-search-area">
             <div class="row">
                 <div class="col-sm-8">
@@ -163,62 +163,28 @@
         </div>
     </div>
     <!--AD Space-->
-    <!-- <div class="container">
-        <div class="row mt-0" id="ad-row">
-            <div class="col-sm-2">
-                <div class="ad-container">
-                    <img class="ad-img" src="assets/images/sidebar/sm-allied.gif">
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="ad-container">
-                    <img class="ad-img" src="assets/images/sidebar/sm-baja.gif">
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="ad-container">
-                    <img class="ad-img" src="assets/images/sidebar/sm-bigtime.png">
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="ad-container">
-                    <img class="ad-img" src="assets/images/sidebar/sm-det.png">
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="ad-container">
-                    <img class="ad-img" src="assets/images/sidebar/sm-dyn.gif">
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="ad-container">
-                    <img class="ad-img" src="assets/images/sidebar/sm-ken.png">
-                </div>
-            </div>
+    <div id="scroller" style="width: 1110px; height: 75px; margin: 0 auto;">
+        <div class="innerScrollArea">
+            <ul>
+                <!-- Define photos here -->
+                <li><img class="ad-img" src="assets/images/sidebar/sm-allied.gif" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-baja.gif" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-bigtime.png" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-det.png" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-dyn.gif" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-ken.png" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-locating.png" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-minuteman.png" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-nams.jpeg" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-rec.png" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-recmng.gif" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-repfl.png" /></li>
+                <li><img class="ad-img" src="assets/images/sidebar/sm-rsig.gif" /></li>
+            </ul>
         </div>
-    </div> -->
-    <div id="scroller" style="width: 550px; height: 75px; margin: 0 auto;">
-            <div class="innerScrollArea">
-                <ul>
-                    <!-- Define photos here -->
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-allied.gif" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-baja.gif" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-bigtime.png" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-det.png" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-dyn.gif" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-ken.png" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-locating.png" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-minuteman.png" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-nams.jpeg" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-rec.png" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-recmng.gif" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-repfl.png" /></li>
-                    <li><img class="ad-img" src="assets/images/sidebar/sm-rsig.gif" /></li>
-                </ul>
-            </div>
-        </div>
+    </div>
     <!--Search by State-->
-    <div class="container mb-4">
+    <div class="container mb-3 mt-2">
         <div class="card">
             <div class="card-header">
                 <h4 id="search-by-state-header"> Search By State</h4>
@@ -390,9 +356,8 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

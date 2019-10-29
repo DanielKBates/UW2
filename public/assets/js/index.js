@@ -1,4 +1,4 @@
-$(function(){
+$(function (){
     var scroller = $('#scroller div.innerScrollArea');
     var scrollerContent = scroller.children('ul');
     scrollerContent.children().clone().appendTo(scrollerContent);
@@ -12,7 +12,7 @@ $(function(){
     var viewportW = scroller.width();
 
     // Scrolling speed management
-    var controller = {curSpeed:0, fullSpeed:2};
+    var controller = {curSpeed:0, fullSpeed:1};
     var $controller = $(controller);
     var tweenToNewSpeed = function(newSpeed, duration)
     {
@@ -32,6 +32,8 @@ $(function(){
             newX -= fullW;
         scroller.scrollLeft(newX);
     };
+    console.log("foo")
     setInterval(doScroll, 20);
     tweenToNewSpeed(controller.fullSpeed);
 });
+
