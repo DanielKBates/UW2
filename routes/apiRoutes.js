@@ -1,6 +1,7 @@
 var Repoman = require("../models/company.js");
-
+var Sequelize = require("sequelize")
 module.exports = function (app) {
+    
     app.get("/api/all", function (req, res) {
         Repoman.findAll({ raw: true }).then(function (result) {
             console.log(result)
@@ -13,7 +14,9 @@ module.exports = function (app) {
         Repoman.findAndCountAll({
             raw: true,
             where: {
-                state: stateVal
+                state:{
+                 [Sequelize.Op.substring]: stateVal}
+                    
             }
             
         }).then((result) => {

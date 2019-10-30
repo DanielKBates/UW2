@@ -12,7 +12,8 @@ var sequelize = new Sequelize("repoman", "jjackley55", "R3poMan$", {
     define:{
         timestamps: false,
         raw: true
-    }
+    },
+    
 });
 
 

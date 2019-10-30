@@ -6,7 +6,7 @@ var Repoman = sequelize.define("customer_info", {
   
   state: Sequelize.STRING,
   companyName: Sequelize.STRING,
-  phoneNumber: Sequelize.INTEGER,
+  phoneNumber: Sequelize.STRING,
   address: Sequelize.STRING,
   name: Sequelize.STRING,
   username: Sequelize.STRING,
