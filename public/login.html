@@ -90,7 +90,7 @@
                                         <input type="password" name="password" id="password"/>
                                     </div>
                                     <div>
-                                        <input type="button" value="Login" id="submit" onclick="validate()"/>
+                                        <input type="submit" value="Login" id="submit" onclick="validate()"/>
                                     </div>
                                     <label>
                                         <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -100,6 +100,32 @@
                                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                                     <span class="psw">Forgot <a href="#">password?</a></span>
                                 </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h1 class="text-dark text-right">Register</h1>
+                                <form action="/login" method="post">
+                                    <div class="register">
+                                        <label>Name</label>
+                                        <input type="text" class="register" placeholder="Name" name="name">
+                                    </div>
+                                    <div class="register">
+                                        <label>Email:</label>
+                                        <input type="email" name="email" class="register" placeholder="Email">
+                                    </div>
+                                    <div class="register">
+                                        <label>Password:</label>
+                                        <input type="password" class="register" placeholder="Password" name="password">
+                                    </div>
+                                    <div class="register">
+                                        <label>Confirm Password:</label>
+                                        <input type="password" class="register" placeholder="Password" name="password2">
+                                    </div>
+                                    <div class="register">
+                                        <label>Company:</label>
+                                        <input type="text" class="register" placeholder="Company" name="company">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
                         </div>
                     </div>
                 </div>
