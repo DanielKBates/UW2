@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.get("/api/state/:state", function (req, res) {
         var stateVal = req.params.state.toUpperCase();
         console.log(stateVal);
-        Repoman.findAndCountAll({
+        Repoman.findAll({
             raw: true,
             where: {
                 state:{
