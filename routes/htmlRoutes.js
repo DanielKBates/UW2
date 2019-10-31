@@ -1,4 +1,6 @@
 var path = require("path");
+const { check, validationResult } = require('express-validator');
+const passport = require('passport');
 
 
 module.exports = function(app) {
@@ -44,9 +46,30 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/stateSearch.html"))
     });
 
+    app.post('/login', async(req, res) => {
+        try {
+            const hashedPwd = await bcryptjs.hash(req.body.password, 10)
+            users.push({
+                name: req.body.name,
+                email: req.body.email,
+                password: hashedPwd,
+                company: req.body.company
+            })
+            res.redirect('/login')
+        } catch {
+            res.redirect('/login')
+        }
+        console.log(users)
+    });
 
+    app.post('/login',
+        passport.authenticate('local', { failureRedirect: '/login' }),
+        function(req, res) {
+            res.redirect('/customer');
+        });
     // If no matching route is found default to home
     // app.get("*", function(req, res) {
     //     res.sendFile(path.join(__dirname, "../public/index.html"));
     // });
+
 };
