@@ -1,7 +1,7 @@
 var Repoman = require("../models/company.js");
 var Sequelize = require("sequelize")
 module.exports = function (app) {
-    
+
     app.get("/api/all", function (req, res) {
         Repoman.findAll({ raw: true }).then(function (result) {
             console.log(result)
@@ -14,11 +14,14 @@ module.exports = function (app) {
         Repoman.findAll({
             raw: true,
             where: {
-                state:{
-                 [Sequelize.Op.substring]: stateVal}
-                    
-            }
-            
+                state: {
+                    [Sequelize.Op.substring]: stateVal
+                }
+            },
+            order: [
+                ['listingLevel', 'DESC']
+            ]
+
         }).then((result) => {
             console.log(result);
             res.json(result);

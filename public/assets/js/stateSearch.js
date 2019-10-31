@@ -51,6 +51,8 @@ $(document).ready(function () {
             $("#state-search-header").append("Massachusetts")
         } else if (currentState === "MI") {
             $("#state-search-header").append("Michigan")
+        } else if (currentState === "MS") {
+            $("#state-search-header").append("Mississippi")
         } else if (currentState === "MO") {
             $("#state-search-header").append("Missouri")
         } else if (currentState === "MT") {
@@ -99,7 +101,7 @@ $(document).ready(function () {
             $("#state-search-header").append("West Virginia")
         } else if (currentState === "WI") {
             $("#state-search-header").append("Wisconsin")
-        } else if(currentState === "WY") {
+        } else if (currentState === "WY") {
             $("#state-search-header").append("Wyoming")
         } else {
             $("state-search-header").append("Sorry, the request didn't find any results")
@@ -109,7 +111,7 @@ $(document).ready(function () {
 
 
         for (var i = 0; i < data.length; i++) {
-            var wellSection = $("<li><div class='card-body mt-2 mb-2'></li>");
+            var wellSection = $("<li class='mt-2 mb-2'><div class='card-body '></li>");
             wellSection.addClass("well");
             wellSection.attr("id", "company" + i);
             $("#well-section").append(wellSection);
@@ -117,14 +119,20 @@ $(document).ready(function () {
             $("#company" + i).append("<p>Address: " + data[i].address + "</p>");
             $("#company" + i).append("<p>States: " + data[i].state + "</p>");
             $("#company" + i).append("<p>Phone: " + data[i].phoneNumber + "</p>");
-            $("company").css({"padding" : "4%"})
+            $("company").css({ "padding": "4%" })
             var listingData = data[i].listingLevel;
-            var listing = listingData.substr(10, 100)
+            var listing = listingData.substr(10, 500)
             console.log(listing);
             if (listing === 'Basic Annual (sku:LISTING002A)') {
-                $("#company" + i).css({"background-color":"#D3D3D3", "border-style":"solid", "border-width":"3px", "border-color": "grey", "padding": "4%"})
+                $("#company" + i).css({ "background-color": "#D3D3D3", "border-style": "solid", "border-width": "3px", "border-color": "grey", "padding": "4%" })
+            } else if (listing === 'Enhanced Annual (sku:LISTING003-EA)' || listing === 'Enhanced Quarterly (sku:LISTING003-EQ)') {
+                $("#company" + i).css({ "background-color": "firebrick", "border-style": "solid", "border-width": "3px", "border-color": "grey", "padding": "4%" })
+            } else if (listing ==='Enhanced With Multi-Media Annual (sku:LISTING-EMMA)' || listing === 'Enhanced With Multi-Media Quarterly (sku:LISTING-EMMQ)') {
+                $("#company" + i).css({ "background-color": "red", "border-style": "solid", "border-width": "3px", "border-color": "yellow", "padding": "4%" })
+
             }
-            
+
+
 
 
 
