@@ -8,6 +8,18 @@ module.exports = function (app) {
             res.json(result)
         });
     });
+    app.get("/api/company/:id", function(req, res) {
+        var idINT= parseInt(req.params.id);
+        Repoman.findAll({
+            raw:true,
+            where: {
+                id: idINT
+            }
+        }).then(function(result) {
+            console.log(result)
+            res.json(result)
+        });
+    })
     app.get("/api/state/:state", function (req, res) {
         var stateVal = req.params.state.toUpperCase();
         console.log(stateVal);
@@ -27,14 +39,5 @@ module.exports = function (app) {
             res.json(result);
         });
     });
-    app.get("api/company/:companyName", (req, res) => {
-        Repoman.findAll({
-            raw: true,
-            where: {
-                companyName: {
-                    $iLike: req.params.companyName
-                }
-            }
-        })
-    })
+   
 }

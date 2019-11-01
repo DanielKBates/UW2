@@ -112,10 +112,12 @@ $(document).ready(function () {
 
         for (var i = 0; i < data.length; i++) {
             var wellSection = $("<li class='mt-2 mb-2'><div class='card-body '></li>");
+            var companyID = data[i].id.toString();
+            console.log(companyID)
             wellSection.addClass("well");
             wellSection.attr("id", "company" + i);
             $("#well-section").append(wellSection);
-            $("#company" + i).append("<h4>" + data[i].companyName + "</h4>");
+            $("#company" + i).append("<a style ='text-decoration:none' href='/company/"+companyID+"'><h4>" + data[i].companyName + "</h4></a>");
             $("#company" + i).append("<p>Address: " + data[i].address + "</p>");
             $("#company" + i).append("<p>States: " + data[i].state + "</p>");
             $("#company" + i).append("<p>Phone: " + data[i].phoneNumber + "</p>");
@@ -123,14 +125,18 @@ $(document).ready(function () {
             var listingData = data[i].listingLevel;
             var listing = listingData.substr(10, 500)
             console.log(listing);
-            if (listing === 'Basic Annual (sku:LISTING002A)') {
+            //conditional checking listing level to display correct listings
+            if (listing === 'Basic Annual (sku:LISTING002A)' || listing === 'Basic Annual With Auto-Renew (sku:LISTING002A)' || listing === 'Basic Annual (sku:LISTING002A) State(s):') {
                 $("#company" + i).css({ "background-color": "#D3D3D3", "border-style": "solid", "border-width": "3px", "border-color": "grey", "padding": "4%" })
-            } else if (listing === 'Enhanced Annual (sku:LISTING003-EA)' || listing === 'Enhanced Quarterly (sku:LISTING003-EQ)') {
+            } else if (listing === 'Enhanced Annual (sku:LISTING003-EA)' || listing === 'Enhanced Quarterly (sku:LISTING003-EQ)' || listing === 'Enhanced Annual With Auto-Renew (sku:LISTING003-EA)') {
                 $("#company" + i).css({ "background-color": "firebrick", "border-style": "solid", "border-width": "3px", "border-color": "grey", "padding": "4%" })
             } else if (listing ==='Enhanced With Multi-Media Annual (sku:LISTING-EMMA)' || listing === 'Enhanced With Multi-Media Quarterly (sku:LISTING-EMMQ)') {
                 $("#company" + i).css({ "background-color": "red", "border-style": "solid", "border-width": "3px", "border-color": "yellow", "padding": "4%" })
+            } else {
+                $("#company" + i).css({ "background-color": "transparent", "border-style": "solid", "border-width": "3px", "border-color": "lightgrey", "padding": "4%" })
 
             }
+
 
 
 

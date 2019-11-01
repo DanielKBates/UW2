@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(window).on("load", function () {
     $(function () {
         var scroller = $('#scroller div.innerScrollArea');
         var scrollerContent = scroller.children('ul');
@@ -24,7 +24,7 @@ $(document).ready(function () {
 
 
 
-        // Scrolling management; start the automatical scrolling
+        // Scrolling management; start the automatic scrolling
         var doScroll = function () {
             var curX = scroller.scrollLeft();
             var newX = curX + controller.curSpeed;
@@ -32,9 +32,11 @@ $(document).ready(function () {
                 newX -= fullW;
             scroller.scrollLeft(newX);
         };
-        console.log("foo")
+
         setInterval(doScroll, 20);
         tweenToNewSpeed(controller.fullSpeed);
+        console.log("foo")
     });
 })
+
 

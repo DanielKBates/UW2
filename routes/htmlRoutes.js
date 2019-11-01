@@ -43,6 +43,9 @@ module.exports = function(app) {
     app.get("/state/:state", function(req, res){
         res.sendFile(path.join(__dirname, "../public/stateSearch.html"))
     });
+    app.get("/company/:id", function(req, res){
+        res.sendFile(path.join(__dirname, "../public/companyView.html"))
+    });
 
 
     // If no matching route is found default to home
